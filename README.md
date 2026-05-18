@@ -76,8 +76,9 @@ Abre en la tablet: http://192.168.1.42:8080/
 
 Tienes dos clientes equivalentes:
 
-- **App Android nativa** (recomendada): ver `android/README.md` para
-  compilar e instalar el .apk. Abre la app y escribe `IP:8080`.
+- **App Android nativa** (recomendada): el .apk se construye sin
+  Android Studio - usa el workflow **Build APK** de GitHub Actions o el
+  script `build_apk.bat` desde la terminal. Detalles en `android/README.md`.
 - **Navegador**: abre la URL impresa en consola en Chrome de la tablet.
 
 Toca la pantalla para mover y pulsar el raton dentro del monitor capturado.

@@ -2,27 +2,39 @@
 
 Cliente Android nativo que recibe el stream del servidor y envia toques.
 
-## Compilar el .apk
+## Compilar el .apk (sin Android Studio)
 
-Opcion A - **Android Studio** (lo mas comodo):
+Tres caminos. Elige el que mas te guste:
 
-1. Instala Android Studio (Hedgehog 2023.1.1 o posterior).
-2. *File -> Open*, selecciona la carpeta `android/`.
-3. Android Studio descarga el SDK y genera el Gradle wrapper.
-4. *Build -> Build Bundle(s) / APK(s) -> Build APK(s)*.
-5. El .apk queda en `app/build/outputs/apk/debug/app-debug.apk`.
+### Opcion A - GitHub Actions (cero instalacion)
 
-Opcion B - **Linea de comandos** (necesitas JDK 17 + Android SDK):
+1. Haz push de esta rama (ya esta hecho).
+2. Ve al repo en GitHub -> pestana **Actions** -> workflow **Build APK**.
+3. Espera a que termine (~3-5 min la primera vez).
+4. Descarga el artefacto **DoblePantalla-debug-apk** del run.
 
-```bash
-cd android
-# La primera vez genera el wrapper:
-gradle wrapper --gradle-version 8.10.2
-./gradlew assembleRelease
-# o assembleDebug para version de prueba
+El workflow `.github/workflows/build-apk.yml` se dispara en cada push
+que toque `android/` y tambien manualmente desde *Run workflow*.
+
+### Opcion B - Terminal de Windows (`build_apk.bat`)
+
+Desde la raiz del repo, doble-click o:
+
+```bat
+build_apk.bat
 ```
 
-El .apk de release sin firmar queda en `app/build/outputs/apk/release/`.
+Requiere **JDK 17** en el PATH (Temurin: https://adoptium.net/).
+La primera ejecucion descarga el SDK de Android y Gradle (~2 GB) en
+`%USERPROFILE%\.doblepantalla-build`. Las siguientes son rapidas.
+
+Al terminar deja el apk en:
+`android\app\build\outputs\apk\debug\app-debug.apk`
+
+### Opcion C - Android Studio
+
+Si ya lo tienes, *File -> Open* sobre la carpeta `android/` y
+*Build -> Build APK(s)*.
 
 ## Instalar en la tablet
 
