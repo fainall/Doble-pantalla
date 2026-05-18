@@ -74,10 +74,24 @@ Abre en la tablet: http://192.168.1.42:8080/
 
 ## 3. Conectar la tablet
 
-1. Conecta la tablet a la misma WiFi que el PC.
-2. Abre la URL impresa en consola en el navegador de la tablet.
-3. Veras el escritorio del monitor seleccionado. Tocar la pantalla mueve y
-   pulsa el raton dentro de ese monitor.
+Tienes dos clientes equivalentes:
+
+- **App Android nativa** (recomendada): ver `android/README.md` para
+  compilar e instalar el .apk. Abre la app y escribe `IP:8080`.
+- **Navegador**: abre la URL impresa en consola en Chrome de la tablet.
+
+Toca la pantalla para mover y pulsar el raton dentro del monitor capturado.
+
+## 4. Generar .exe portable
+
+Si no quieres tener Python en cada PC donde lo uses, ejecuta:
+
+```bat
+build_exe.bat
+```
+
+Crea `dist\DoblePantalla.exe`, un binario unico que arranca el servidor
+con doble-click. Sin instalacion ni dependencias.
 
 ## Notas
 
